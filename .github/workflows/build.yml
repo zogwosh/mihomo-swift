@@ -1,0 +1,32 @@
+name: macOS ARM64 development build
+on:
+  push:
+    branches: [main, 'codex/**']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch pinned verified kernel
+        run: python3 Scripts/fetch-kernel.py
+      - name: Transaction and model checks
+        run: |
+          swift build
+          swift run --skip-build MihomoChecks --real
+      - name: Real core and crash cleanup checks
+        run: python3 Tests/Integration/core_smoke.py
+      - name: Build development App and DMG
+        run: |
+          bash Scripts/build-app.sh
+          bash Scripts/make-dmg.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Mihomo-macos-arm64-development
+          path: |
+            dist/*.dmg
+            dist/*.sha256

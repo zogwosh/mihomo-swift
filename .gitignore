@@ -1,0 +1,8 @@
+.build/
+build/
+dist/
+.DS_Store
+Resources/mihomo
+Resources/mihomo.gz
+*.p12
+.env

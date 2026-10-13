@@ -1,0 +1,9 @@
+MihomoSwift uses Mihomo, Copyright MetaCubeX and contributors, GNU GPL v3.
+Upstream: https://github.com/MetaCubeX/mihomo
+Bundled version and immutable source URL: kernel-manifest.json.
+Corresponding upstream source: https://github.com/MetaCubeX/mihomo/tree/v1.19.32
+Source archive: https://github.com/MetaCubeX/mihomo/archive/refs/tags/v1.19.32.tar.gz
+
+Yams 6.2.2, Copyright JP Simard and contributors, MIT License.
+https://github.com/jpsim/Yams/tree/6.2.2
+See Yams-LICENSE.txt for the complete notice (copied during build).
