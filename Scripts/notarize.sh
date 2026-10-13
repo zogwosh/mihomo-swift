@@ -16,4 +16,7 @@ codesign --sign "$SIGNING_IDENTITY" --timestamp dist/Mihomo-0.1.0-macos-arm64.dm
 xcrun notarytool submit dist/Mihomo-0.1.0-macos-arm64.dmg --keychain-profile "$NOTARY_PROFILE" --wait
 xcrun stapler staple dist/Mihomo-0.1.0-macos-arm64.dmg
 xcrun stapler validate dist/Mihomo-0.1.0-macos-arm64.dmg
-shasum -a 256 dist/Mihomo-0.1.0-macos-arm64.dmg > dist/Mihomo-0.1.0-macos-arm64.dmg.sha256
+(
+  cd dist
+  shasum -a 256 Mihomo-0.1.0-macos-arm64.dmg > Mihomo-0.1.0-macos-arm64.dmg.sha256
+)

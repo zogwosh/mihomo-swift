@@ -9,4 +9,7 @@ ln -s /Applications "$STAGE/Applications"
 cp docs/INSTALL.md "$STAGE/安装说明.md"
 NAME="${DMG_NAME:-Mihomo-0.1.0-macos-arm64-development.dmg}"
 hdiutil create -volname Mihomo -srcfolder "$STAGE" -ov -format UDZO "dist/$NAME"
-shasum -a 256 "dist/$NAME" > "dist/$NAME.sha256"
+(
+  cd dist
+  shasum -a 256 "$NAME" > "$NAME.sha256"
+)
